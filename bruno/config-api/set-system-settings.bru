@@ -1,0 +1,30 @@
+meta {
+  name: set-system-settings
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{base_url}}/system-settings
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "latitude": 41.3889,
+    "longitude": 2.1720,
+    "coordinates_auto": false,
+    "time_zone": "Europe/Madrid",
+    "time_zone_auto": false,
+    "bg_brightness": 50,
+    "bg_brightness_auto": true,
+    "led_brightness": 50,
+    "led_brightness_auto": true
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

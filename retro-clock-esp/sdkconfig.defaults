@@ -1,0 +1,41 @@
+# docs: https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/kconfig-reference.html
+# also: `rg -oI 'CONFIG_[a-zA-Z0-9_]*' .embuild | sort | uniq | less`
+
+# Rust often needs a bit of an extra main task stack size compared to C (the default is 3K)
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144
+
+# Use this to set FreeRTOS kernel tick frequency to 1000 Hz (100 Hz by default).
+# This allows to use 1 ms granularity for thread sleeps (10 ms by default).
+#CONFIG_FREERTOS_HZ=1000
+
+# Workaround for https://github.com/espressif/esp-idf/issues/7631
+#CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=n
+#CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_FULL=n
+
+CONFIG_ESP_HTTPS_SERVER_ENABLE=y
+CONFIG_ESP_IDF_COMP_MDNS_ENABLED=y
+
+# chromium under Linux has very long default user-agent header,
+# we increase size of the buffers to accommodate that
+CONFIG_HTTPD_MAX_REQ_HDR_LEN=2048
+CONFIG_HTTPD_MAX_URI_LEN=1024
+CONFIG_HTTPD_PURGE_BUF_LEN=32
+
+# Values other that default the other peer Maximum Fragment Length negotiation extension.
+# Too small values make local http sever or remote http client fail.
+#CONFIG_MBEDTLS_SSL_IN_CONTENT_LEN=4096
+#CONFIG_MBEDTLS_SSL_OUT_CONTENT_LEN=2048
+
+# Enabling this gives better effects than adjustments above. Adjustments above don't
+# bring much effect on memory usage when this option is enabled.
+CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
+
+CONFIG_PM_DFS_INIT_AUTO=n
+CONFIG_PM_ENABLE=y
+#CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_80=y
+#CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160=y
+#CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_FREERTOS_USE_TICKLESS_IDLE=y
+#CONFIG_FREERTOS_IDLE_TIME_BEFORE_SLEEP=10
+
+CONFIG_ESP_SYSTEM_PANIC_PRINT_HALT=y

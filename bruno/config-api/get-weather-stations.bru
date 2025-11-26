@@ -1,0 +1,15 @@
+meta {
+  name: get-weather-stations
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/weather-stations
+  body: none
+  auth: none
+}
+
+settings {
+  encodeUrl: true
+}

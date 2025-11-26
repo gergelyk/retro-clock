@@ -1,0 +1,25 @@
+meta {
+  name: set-weather-stations
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base_url}}/weather-stations
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+      ["Bellmunt", "https://www.meteoclimatic.net/perfil/ESCAT0800000008572B"],
+      ["Berga", "https://www.meteo.cat/observacions/xema/dades?codi=WM"],
+      ["Ager", "https://www.weatherlink.com/embeddablePage/show/3c931c66b6604988ba922763daf39a52/wide"],
+      ["Castelldefels", "https://www.meteoclimatic.net/perfil/ESCAT0800000008860B"]
+  ]
+  
+}
+
+settings {
+  encodeUrl: true
+}

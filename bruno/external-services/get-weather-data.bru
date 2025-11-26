@@ -1,0 +1,28 @@
+meta {
+  name: get-weather-data
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://weather.krason.dev/api/v1?token=nnolm662M8cmjaIj
+  body: json
+  auth: inherit
+}
+
+params:query {
+  token: nnolm662M8cmjaIj
+}
+
+body:json {
+  [
+    "https://www.meteoclimatic.net/perfil/ESCAT0800000008572B",
+    "https://www.meteo.cat/observacions/xema/dades?codi=WM",
+    "https://www.weatherlink.com/embeddablePage/show/3c931c66b6604988ba922763daf39a52/wide",
+    "https://www.meteoclimatic.net/perfil/ESCAT0800000008860B"
+  ]
+}
+
+settings {
+  encodeUrl: true
+}

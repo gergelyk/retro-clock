@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "retro-clock",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

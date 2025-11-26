@@ -1,0 +1,38 @@
+meta {
+  name: get-forecast-metno-seamless
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://api.open-meteo.com/v1/forecast?latitude={{latitide}}&longitude={{longitude}}&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover&daily=sunrise,sunset,precipitation_sum,precipitation_hours,precipitation_probability_max&models=metno_seamless&timezone={{timezone}}&start_date={{date}}&end_date={{date}}
+  body: json
+  auth: inherit
+}
+
+params:query {
+  latitude: {{latitide}}
+  longitude: {{longitude}}
+  hourly: temperature_2m,wind_speed_10m,wind_direction_10m,wind_gusts_10m,cloud_cover
+  daily: sunrise,sunset,precipitation_sum,precipitation_hours,precipitation_probability_max
+  models: metno_seamless
+  timezone: {{timezone}}
+  start_date: {{date}}
+  end_date: {{date}}
+}
+
+script:pre-request {
+  let date = new Date().toISOString().split('T')[0];
+  bru.setEnvVar("date", date);
+  
+}
+
+script:post-response {
+  
+  
+  
+}
+
+settings {
+  encodeUrl: true
+}

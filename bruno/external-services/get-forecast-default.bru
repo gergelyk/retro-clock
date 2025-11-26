@@ -1,0 +1,30 @@
+meta {
+  name: get-forecast-default
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://api.open-meteo.com/v1/forecast?latitude={{latitide}}&longitude={{longitude}}&daily=uv_index_max&timezone={{timezone}}&start_date={{date}}&end_date={{date}}
+  body: json
+  auth: inherit
+}
+
+params:query {
+  latitude: {{latitide}}
+  longitude: {{longitude}}
+  daily: uv_index_max
+  timezone: {{timezone}}
+  start_date: {{date}}
+  end_date: {{date}}
+}
+
+script:pre-request {
+  let date = new Date().toISOString().split('T')[0];
+  bru.setEnvVar("date", date);
+  
+}
+
+settings {
+  encodeUrl: true
+}

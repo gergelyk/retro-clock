@@ -1,0 +1,29 @@
+meta {
+  name: set-world-time-places
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{base_url}}/world-time-places
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+    {
+      "name": "Sydney",
+      "timezone": "Australia/Sydney"
+    },
+    {
+      "name": "Honolulu",
+      "timezone": "Pacific/Honolulu"
+    }
+  ]
+  
+}
+
+settings {
+  encodeUrl: true
+}

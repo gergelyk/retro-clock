@@ -1,0 +1,15 @@
+meta {
+  name: get-wifi-creds
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base_url}}/wifi-creds
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,32 @@
+[package]
+name = "retro_clock_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.97"
+chrono = { version = "0.4.40", features = ["serde"] }
+chrono-tz = { version = "0.10.4", features = ["serde"] }
+log = "0.4.27"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+url = "2.5.4"
+min_jwt = { version = "0.10.0", features = ["ring"], optional = true }
+ring = { version = "0.17.14", optional = true }
+pbkdf2 = "0.12.2"
+sha2 = "0.10.9"
+base64 = "0.22.1"
+
+[features]
+default = []
+
+# Panic when a sending to a channel that is full. Use this for debugging purposes.
+panic_on_tx_overflow = []
+
+# When with lazy fatching content of the pages is downloaded just before the
+# page is shown. This makes the UI less responsive, but saves memory.
+lazy_fetching = []
+
+
+
+login = [ "min_jwt", "ring"]

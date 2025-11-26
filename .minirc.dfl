@@ -1,0 +1,7 @@
+# default configuration for minicom
+pu baudrate         115200
+pu bits             8
+pu parity           N
+pu stopbits         1
+pu escape-key       ^B
+pu addcarreturn     Yes

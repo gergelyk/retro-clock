@@ -1,0 +1,8 @@
+/.vscode
+/.embuild
+/target
+/Cargo.lock
+/certs/*.pem
+/certs/*.crt
+/certs/*.key
+/.webui_dist

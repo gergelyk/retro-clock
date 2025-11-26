@@ -1,0 +1,22 @@
+meta {
+  name: set-admin-creds
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{base_url}}/admin-creds
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "password": "123"
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

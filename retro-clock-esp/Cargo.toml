@@ -1,0 +1,57 @@
+[package]
+name = "retro_clock_esp"
+version = "0.1.0"
+authors = ["Grzegorz Krason <grzegorz.krason@gmail.com>"]
+edition = "2021"
+resolver = "2"
+rust-version = "1.77"
+
+[[bin]]
+name = "retro_clock_esp"
+harness = false # do not use the built in cargo test harness -> resolve rust-analyzer errors
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true    # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+default = []
+no_cors = []
+no_file_server = []
+panic_on_thread_error = []
+panic_on_tx_overflow = ["retro_clock_core/panic_on_tx_overflow"]
+
+[dependencies]
+retro_clock_core = { path = "../retro-clock-core", features = ["login"] }
+log = "0.4"
+esp-idf-svc = { version = "0.51", features = ["critical-section", "embassy-time-driver", "embassy-sync", "alloc"] }
+esp-idf-sys = { version = "0.36", features = ["binstart"] }
+esp-idf-hal = "0.45.2"
+anyhow = { version = "1.0.97", features = ["backtrace"] }
+chrono = "0.4.40"
+embedded-svc = "0.28.1"
+heapless = "0.8.0"
+serde_json = "1.0.140"
+libc = "0.2.171"
+chrono-tz = { version = "0.10.4", features = ["serde"] }
+http = "1.3.1"
+base64ct = "=1.7.3" # we downgrade it because the latest version (used by our dependencies) requires edition2024
+cookie = "0.18.1"
+time = "0.3.41"
+array-concat = "0.5.5"
+include_dir = "0.7.4"
+serde = "1.0.228"
+crc32fast = "1.5.0"
+derive-new = "0.7.0"
+
+[build-dependencies]
+embuild = "0.33"
+
+# [package.metadata.esp-idf-sys]
+# main_stack_size = 65536 # increase default stack size for the main thread of FreeRTOS (default is 8192)
+
+[[package.metadata.esp-idf-sys.extra_components]]
+remote_component = { name = "espressif/mdns", version = "1.8.2" }

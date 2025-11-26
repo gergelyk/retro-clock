@@ -1,0 +1,18 @@
+[package]
+name = "retro-clock-webui"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gloo-net = "0.6.0"
+leptos = { version = "0.8.2", features = ["csr"] }
+web-sys = "0.3.78"
+retro_clock_core = { path = "../retro-clock-core" }
+serde_json = "1.0.143"
+anyhow = "1.0.99"
+chrono-tz = "0.10.4"
+serde = "1.0.225"
+leptos_router = "0.8.6"
+http = "1.3.1"
+scopeguard = "1.2.0"
+gloo-timers = { version = "0.3.0", features = ["futures"] }

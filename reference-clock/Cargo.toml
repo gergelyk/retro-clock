@@ -1,0 +1,8 @@
+[package]
+name = "reference_clock"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chrono = "0.4.42"
+spin_sleep = "1.3.3"

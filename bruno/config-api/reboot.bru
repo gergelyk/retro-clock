@@ -1,0 +1,15 @@
+meta {
+  name: reboot
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{base_url}}/reboot
+  body: json
+  auth: none
+}
+
+settings {
+  encodeUrl: true
+}

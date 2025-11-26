@@ -1,0 +1,23 @@
+meta {
+  name: set-wifi-creds
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base_url}}/wifi-creds
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "ssid": "",
+    "password": ""
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

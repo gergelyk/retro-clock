@@ -1,0 +1,11 @@
+{
+    // prevent errors to be reported when following env vars are missing
+    "rust-analyzer.cargo.extraEnv": {
+        "JWT_SECRET_BASE64": "dummy",
+        "HMAC_SALT_BASE64": "dummy",
+        "RCLOCK_SIM_SERVER_PORT": "dummy",
+        "WEATHER_API_URL": "dummy",
+        "FORECAST_API_URL": "dummy",
+        "LOCATION_API_URL": "dummy"
+    }
+}

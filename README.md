@@ -108,6 +108,7 @@ Hardware built from [WEMOS S3 Mini](https://www.wemos.cc/en/latest/s3/s3_mini.ht
 * [Hardware Guide](docs/hardware-guide.md)
 * [Remaining docs](docs/)
 * [Slides](https://filedn.com/ls8U70bX0lASS65WlPE8h3j/PERMALINKS/retro-clock-slides/index.html) <- contain many technical details
+* [Video](https://www.youtube.com/watch?v=yR7irQRpGIg&t=46m0s) <- comments to the slides above
 
 ## Setup
 

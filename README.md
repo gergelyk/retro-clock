@@ -155,7 +155,7 @@ Hardware built from [WEMOS S3 Mini](https://www.wemos.cc/en/latest/s3/s3_mini.ht
 - Setup environment (unless already done):
     ```sh
     # Certificate for TLS for HTTP server in `retro-clock-esp/certs`
-    ../dev.rs new cert
+    ./dev.rs new cert
     
     # Set env vars in `.env`, this includes secrets
     ./dev.rs new env
